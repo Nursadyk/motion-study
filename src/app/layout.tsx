@@ -23,7 +23,7 @@ const gilroyRegular = localeFont({
 const gilroyMedium = localeFont({
   src: [
     {
-      path: "../../public/fonts/gilroy/Gilroy-medium.ttf",
+      path: "../../public/fonts/gilroy/Gilroy-Medium.ttf",
     },
   ],
   variable: "--font-gilroy-medium",
@@ -31,7 +31,7 @@ const gilroyMedium = localeFont({
 const gilroyBold = localeFont({
   src: [
     {
-      path: "../../public/fonts/gilroy/Gilroy-Semibold.ttf",
+      path: "../../public/fonts/gilroy/Gilroy-SemiBold.ttf",
     },
   ],
   variable: "--font-gilroy-bold",

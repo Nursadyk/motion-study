@@ -4,7 +4,7 @@ import Experiences from "./homeSections/Experiences";
 import Exams from "./homeSections/Exams";
 import Videos from "./homeSections/Videos";
 
-export const HomePage = () => {
+function HomePage() {
   return (
     <>
       <Hero />
@@ -13,4 +13,5 @@ export const HomePage = () => {
       <Videos />
     </>
   );
-};
+}
+export default HomePage;

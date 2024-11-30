@@ -3,7 +3,7 @@ import { Container, SearchItems, Title } from "@/components/shared";
 import { Button } from "@/components/ui";
 import React from "react";
 
-export const Hero = () => {
+function Hero() {
   const [animationClass, setAnimationClass] = React.useState("animate-grow");
   React.useEffect(() => {
     const timeout = setTimeout(() => {
@@ -95,4 +95,5 @@ export const Hero = () => {
       </Container>
     </section>
   );
-};
+}
+export default Hero;

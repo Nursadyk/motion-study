@@ -1,7 +1,7 @@
 import { Container } from "@/components/shared";
 import React from "react";
 
-export const Videos = () => {
+function Videos() {
   return (
     <section className=" pb-[124px] md:pb-[220px]">
       <Container>
@@ -53,4 +53,5 @@ export const Videos = () => {
       </Container>
     </section>
   );
-};
+}
+export default Videos;

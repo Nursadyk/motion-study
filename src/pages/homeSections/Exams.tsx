@@ -4,7 +4,7 @@ import React from "react";
 import { exams } from "../../../public/assets/const";
 import useWindowSize from "@/hooks/useWindowSize";
 import Link from "next/link";
-export const Exams = () => {
+function Exams() {
   const { width } = useWindowSize();
   return (
     <section className="pb-[124px] md:pb-[204px]">
@@ -81,4 +81,5 @@ export const Exams = () => {
       </Container>
     </section>
   );
-};
+}
+export default Exams;

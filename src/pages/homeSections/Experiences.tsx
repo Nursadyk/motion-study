@@ -3,7 +3,7 @@ import React from "react";
 import { experienceItems } from "../../../public/assets/const";
 import Image from "next/image";
 
-export const Experiences = () => {
+function Experiences() {
   return (
     <section className=" pb-[124px] md:pb-[160px]">
       <Container className="flex flex-wrap xl:flex-nowrap justify-between items-center gap-[45px]  ">
@@ -51,4 +51,5 @@ export const Experiences = () => {
       </Container>
     </section>
   );
-};
+}
+export default Experiences;

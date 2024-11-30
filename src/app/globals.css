@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  font-weight: 500;
+}
+html::-webkit-scrollbar {
+  width: 10px;
+  background-color: #ffdede;
+  border-radius: 10px;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: #ff6a6a;
+  border-radius: 10px;
+}
+footer {
+  background-color: rgba(18, 18, 18, 1);
+  padding-top: 75px;
+  padding-bottom: 35px;
+  color: #fff;
+}
+.liner-gradient {
+  background: linear-gradient(135deg, #ffdede, #e1e1ff);
+  backdrop-filter: blur(18.75px);
+}
+input:focus {
+  outline: none;
+}

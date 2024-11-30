@@ -1,0 +1,39 @@
+.navbar-content.active::after,
+.navbar-content:hover::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ff6a6a;
+}
+@media (max-width: 768px) {
+  .navbar-content.active::after,
+  .navbar-content:hover::after {
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+  }
+}
+.animate {
+  transition: 0.5s;
+}
+.overlay {
+  transition: 0.5s;
+}
+.overlay.active {
+  transition: 0.5s;
+  transform: translateX(100%);
+}
+.scroll-section::-webkit-scrollbar {
+  display: none;
+}
+.base-button {
+  @apply bg-[#109FEF] text-white py-[19px] px-[70px] rounded-full text-[17px];
+}
+.translate-button {
+  @apply text-xl  text-[#7E7B7B] hover:underline underline-offset-4;
+}

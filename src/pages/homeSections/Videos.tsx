@@ -5,7 +5,7 @@ function Videos() {
   return (
     <section className=" pb-[124px] md:pb-[220px]">
       <Container>
-        <h2 className="text-[28px] mb-[34px] md:mb-[111px] text-titleText font-gilroyMedium md:text-center md:text-[44px]">
+        <h2 className="text-[28px] mb-[34px] md:mb-[111px] text-titleText dark:text-white font-gilroyMedium md:text-center md:text-[44px]">
           video testimonials from our students
         </h2>
         <div className="scroll-section flex overflow-x-scroll -space-x-0 md:space-x-10 w-full">

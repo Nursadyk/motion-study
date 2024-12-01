@@ -23,6 +23,8 @@ footer {
   background: linear-gradient(135deg, #ffdede, #e1e1ff);
   backdrop-filter: blur(18.75px);
 }
-input:focus {
+input,
+textarea {
   outline: none;
+  background: transparent;
 }

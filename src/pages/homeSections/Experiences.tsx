@@ -7,13 +7,13 @@ function Experiences() {
   return (
     <section className=" pb-[124px] md:pb-[160px]">
       <Container className="flex flex-wrap xl:flex-nowrap justify-between items-center gap-[45px]  ">
-        <div>
+        <div className=" flex-grow">
           <Title
             text="This is Why We Are Best From Others"
             size="5xl"
             className=" font-gilroyMedium max-w-[465px] text-titleText"
           />
-          <p className=" text-base md:text-lg font-normal text-varText  pb-[50px] pt-[30px] ">
+          <p className="max-w-[555px] text-base md:text-lg font-normal text-varText dark:text-slate-400  pb-[50px] pt-[30px] ">
             We provide full support at all stages of preparation, including
             assistance in filing documents and preparing for an interview.
             Contact us and start your journey to higher education abroad!
@@ -26,7 +26,7 @@ function Experiences() {
           {experienceItems.map((experienceItem) => (
             <div
               key={experienceItem.id}
-              className=" py-9 px-5 space-y-5 shadow-lg rounded-lg"
+              className=" py-9 px-5 space-y-5 shadow-lg rounded-lg dark:bg-slate-800"
             >
               <div className=" flex items-center gap-x-5 md:block">
                 <Image
@@ -36,13 +36,11 @@ function Experiences() {
                   width={46}
                   height={46}
                 />
-                <Title
-                  text={experienceItem.title}
-                  size="2xl"
-                  className=" font-gilroyBold max-w-[360px] var-text"
-                />
+                <h3 className="text-[28px] md:text-[22px] text-varText dark:text-white">
+                  {experienceItem.title}
+                </h3>
               </div>
-              <p className=" text-lg font-normal text-varText md:text-[#001254] md:text-sm">
+              <p className="max-w-full md:max-w-[228px] text-lg font-normal text-varText dark:text-slate-400 md:text-[#001254] md:text-sm md:pb-2">
                 {experienceItem.description}
               </p>
             </div>

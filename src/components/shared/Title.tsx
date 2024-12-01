@@ -23,7 +23,7 @@ export const Title: React.FC<Props> = ({ text, size = "sm", className }) => {
   } as const;
   return React.createElement(
     mapTagBySize[size],
-    { className: `${mapClassNameBySize[size]} ${className}` },
+    { className: `${mapClassNameBySize[size]} ${className} dark:text-white` },
     text
   );
 };

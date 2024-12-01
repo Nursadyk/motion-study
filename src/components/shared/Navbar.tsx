@@ -19,7 +19,7 @@ const Navbar: React.FC<Props> = ({ active, setActive, type, className }) => {
   return (
     <div
       className={clsx("overlay", className, [
-        "absolute top-full bg-blue-100 w-full min-h-screen left-0 md:relative md:min-h-0",
+        "absolute top-full bg-blue-100 w-full min-h-screen dark:bg-slate-900 left-0 md:relative md:min-h-0",
         type === "header" && "md:bg-white",
         type === "footer" && "hidden md:flex md:justify-center md:bg-[#121212]",
       ])}

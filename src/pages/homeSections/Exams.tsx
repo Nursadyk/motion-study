@@ -9,17 +9,17 @@ function Exams() {
   return (
     <section className="pb-[124px] md:pb-[204px]">
       <Container>
-        <h2 className="text-[28px] text-titleText md:text-[48px] font-gilroyMedium md:text-center">
+        <h2 className="text-[28px] text-titleText dark:text-white md:text-[48px] font-gilroyMedium md:text-center">
           Exams
         </h2>
-        <p className="mt-6 mb-10 md:text-center max-w-[675px] md:ml-auto md:mr-auto text-varText">
+        <p className="mt-6 mb-10 md:text-center max-w-[675px] md:ml-auto md:mr-auto text-varText dark:text-slate-400">
           Exams are tests that assess a persons knowledge, skills, aptitude, or
           other qualifications in a specific subject or area of study. They are
           used to evaluate academic performance.
         </p>
         <div className=" grid grid-cols-1 lg:grid-cols-2 justify-items-center xl:justify-items-stretch">
           {/* left side*/}
-          <div className=" rounded-md overflow-hidden h-fit shadow-lg max-w-[466px] mb-11 md:mb-0">
+          <div className=" rounded-md overflow-hidden h-fit shadow-lg dark:ring-1 dark:ring-slate-900/5 max-w-[466px] mb-11 md:mb-0">
             <div>
               <img
                 src="/assets/images/exams-image-zero.png"
@@ -57,7 +57,7 @@ function Exams() {
             {exams.map((exam) => (
               <div
                 key={exam.id}
-                className=" border rounded-md md:py-[18px] md:pl-6 flex flex-col items-center md:flex-row  gap-y-[13px] md:gap-[22px]"
+                className=" border dark:border-0 rounded-md md:py-[18px] md:pl-6 flex flex-col items-center md:flex-row  gap-y-[13px] md:gap-[22px] dark:bg-slate-800"
               >
                 <img
                   src={exam.image}
@@ -69,10 +69,12 @@ function Exams() {
                   <h3 className=" font-gilroyRegular text-sm bg-[#D9EBFF] w-fit px-5 py-[3px] rounded-md text-darkBlue">
                     {exam.title.toLocaleUpperCase()}
                   </h3>
-                  <h4 className=" text-base  md:text-[18px]  text-[#001254] pt-[10px] pb-[5px] md:py-[13px]">
+                  <h4 className=" text-base  md:text-[18px]  text-[#001254] dark:text-white pt-[10px] pb-[5px] md:py-[13px]">
                     {exam.subtitle}
                   </h4>
-                  <p className=" text-xs text-varText">{exam.description}</p>
+                  <p className=" text-xs text-varText dark:text-slate-400">
+                    {exam.description}
+                  </p>
                 </div>
               </div>
             ))}

@@ -40,7 +40,7 @@ export const experienceItems = [
   {
     id: 4,
     image: "/assets/icons/experience-icon-price.svg",
-    title: "AFFORDABLE PRICES",
+    title: "Affordable prices",
     description:
       "reasonable prices will always please you. sign up for a consultation",
   },

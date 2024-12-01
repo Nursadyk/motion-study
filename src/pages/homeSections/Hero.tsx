@@ -27,7 +27,7 @@ function Hero() {
             size="sm"
             className=" font-gilroyBold tracking-wider max-w-[491px] py-[15px] md:pt-9 md:pb-[17px]"
           />
-          <p className=" text-base text-[#606060] font-normal md:text-lg  max-w-[393px]">
+          <p className=" text-base text-[#606060] dark:text-white font-normal md:text-lg  max-w-[393px]">
             Study at the {`world's`} top universities and expand your horizons.
             Get the highest quality education and achieve success abroad.
           </p>
@@ -61,7 +61,7 @@ function Hero() {
             />
           </div>
         </div>
-        <div className="flex flex-col w-full gap-y-[35px] px-[23px] pt-[59px] pb-[42px] rounded-[34px] animate-slide-right md:flex-row md:w-fit md:absolute md:bottom-0  md:justify-between bg-white shadow-lg md:rounded-full md:px-[34px] md:py-[26px] z-20">
+        <div className="flex flex-col w-full gap-y-[35px] px-[23px] pt-[59px] pb-[42px] rounded-[34px] animate-slide-right md:flex-row md:w-fit md:absolute md:bottom-0  md:justify-between bg-white dark:bg-slate-900 shadow-lg md:rounded-full md:px-[34px] md:py-[26px] z-20">
           <div className="flex items-center gap-4">
             <img src="/assets/icons/user-contact-hero.svg" alt="" />
             <form className=" flex flex-col gap-[10px]">

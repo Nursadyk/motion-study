@@ -24,7 +24,7 @@ const ThemeSwitch = () => {
       <Sun
         strokeWidth={2}
         onClick={() => setTheme("light")}
-        className=" cursor-pointer"
+        className=" cursor-pointer hover:p-1 hover:rounded-full"
       />
     );
   }

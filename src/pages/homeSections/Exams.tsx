@@ -4,6 +4,7 @@ import React from "react";
 import { exams } from "../../../public/assets/const";
 import useWindowSize from "@/hooks/useWindowSize";
 import Link from "next/link";
+import Image from "next/image";
 function Exams() {
   const { width } = useWindowSize();
   return (
@@ -21,9 +22,12 @@ function Exams() {
           {/* left side*/}
           <div className=" rounded-md overflow-hidden h-fit shadow-lg dark:ring-1 dark:ring-slate-900/5 max-w-[466px] mb-11 md:mb-0">
             <div>
-              <img
+              <Image
                 src="/assets/images/exams-image-zero.png"
                 alt="image not found"
+                layout="intrinsic"
+                width={466}
+                height={327}
               />
             </div>
             <div className="pl-4">

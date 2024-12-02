@@ -32,7 +32,7 @@
   display: none;
 }
 .base-button {
-  @apply bg-[#109FEF] text-white py-[19px] px-[70px] rounded-full text-[17px];
+  @apply bg-[#109FEF] text-white py-[19px] px-[70px] rounded-full text-[17px] hover:bg-blue-600;
 }
 .translate-button {
   @apply text-xl  text-[#7E7B7B] hover:underline underline-offset-4;

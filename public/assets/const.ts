@@ -71,3 +71,42 @@ export const exams = [
       "But covering them is no big deal. Just study ncert books for these.",
   },
 ];
+// contact information
+export const inputs = [
+  {
+    id: 1,
+    type: "text",
+    placeholder: "First Name",
+    name: "FirstName",
+    required: "First Name is required",
+  },
+  {
+    id: 2,
+    type: "text",
+    placeholder: "Last Name",
+    name: "LastName",
+    required: "Last Name is required",
+  },
+  {
+    id: 3,
+    type: "number",
+    placeholder: "Phone",
+    name: "Phone",
+    required: "Phone number is required",
+    pattern: {
+      value: /^\996\d{3}\d{3}\d{3}$/,
+      message: "Invalid phone number format. Use 996222017686 like this",
+    },
+  },
+  {
+    id: 4,
+    type: "email",
+    placeholder: "Email",
+    name: "Email",
+    required: "Email is required",
+    pattern: {
+      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+      message: "Invalid email format",
+    },
+  },
+];

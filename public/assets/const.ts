@@ -94,7 +94,7 @@ export const inputs = [
     name: "Phone",
     required: "Phone number is required",
     pattern: {
-      value: /^\996\d{3}\d{3}\d{3}$/,
+      value: /^\+996 \d{3} \d{3} \d{3}$/,
       message: "Invalid phone number format. Use 996222017686 like this",
     },
   },

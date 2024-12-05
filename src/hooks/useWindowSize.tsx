@@ -3,8 +3,8 @@ import React from "react";
 
 const useWindowSize = () => {
   const [windowSize, setWindowSize] = React.useState({
-    width: 0,
-    height: 0,
+    width: 1366,
+    height: 768,
   });
   React.useEffect(() => {
     if (typeof window !== "undefined") {

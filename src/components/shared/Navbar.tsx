@@ -13,9 +13,16 @@ interface Props {
   active?: number;
   setActive: (active: number) => void;
   type: string;
+  closeBurger: () => void;
   className?: string;
 }
-const Navbar: React.FC<Props> = ({ active, setActive, type, className }) => {
+const Navbar: React.FC<Props> = ({
+  active,
+  setActive,
+  type,
+  closeBurger,
+  className,
+}) => {
   return (
     <div
       className={clsx("overlay", className, [
@@ -34,7 +41,10 @@ const Navbar: React.FC<Props> = ({ active, setActive, type, className }) => {
           return (
             <li
               key={i}
-              onClick={() => setActive(i)}
+              onClick={() => {
+                setActive(i);
+                closeBurger();
+              }}
               className={clsx("relative navbar-content", {
                 active: active === i && type !== "footer",
               })}
@@ -66,5 +76,4 @@ const Navbar: React.FC<Props> = ({ active, setActive, type, className }) => {
     </div>
   );
 };
-
-export default Navbar;
+export default React.memo(Navbar);

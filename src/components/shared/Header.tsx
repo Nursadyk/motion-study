@@ -23,6 +23,7 @@ export const Header = () => {
             setActive={setActive}
             type="header"
             className={!burger && width <= 768 ? "active" : ""}
+            closeBurger={() => setBurger(false)}
           />
           <SearchItems type="desktop" />
           <div className=" flex gap-x-2">

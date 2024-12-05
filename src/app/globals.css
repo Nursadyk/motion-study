@@ -29,6 +29,7 @@ textarea {
   background: transparent;
 }
 .overlay-contact {
+  visibility: hidden;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -37,6 +38,12 @@ textarea {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  z-index: 200;
   cursor: pointer;
+}
+.overlay-contact.active {
+  visibility: visible;
+}
+.transition-easy {
+  transition: 0.5s;
 }

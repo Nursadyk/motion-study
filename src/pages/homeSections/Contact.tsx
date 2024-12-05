@@ -2,10 +2,11 @@
 import { Container, Title } from "@/components/shared";
 import ContactPopUp from "@/components/shared/ContactPopUp";
 import { Button } from "@/components/ui";
-import { Instagram, Link, Mail, Phone, PhoneCall, Send } from "lucide-react";
+import { Link, Mail, PhoneCall } from "lucide-react";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { inputs } from "../../../public/assets/const";
+import Image from "next/image";
 interface Form {
   FirstName: string;
   LastName: string;
@@ -58,19 +59,19 @@ const Contact = () => {
     }
   }, [openPopUp]);
   return (
-    <section className=" md:pt-5 md:pb-[243px]">
+    <section className=" md:pt-5 pb-[100px] md:pb-[243px]">
       <Container className=" flex flex-col md:flex-row">
         {/*left side*/}
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className=" flex flex-col flex-grow shadow-lg pt-7 pl-5 pr-11 md:px-[43px] md:pt-[44px]"
+          className=" flex flex-col flex-grow shadow-lg pt-7 pl-5 pr-11 mb-[98px] md:mb-0 md:px-[43px] md:pt-[44px]"
         >
           <Title
             text="Send a message"
             size="md"
             className=" pb-[30px] font-gilroyMedium leading-[29px]"
           />
-          <div className=" grid grid-cols-1 sm:grid-cols-2  gap-x-[45px] gap-y-[66px]">
+          <div className=" grid grid-cols-1 sm:grid-cols-2  gap-x-[45px] gap-y-[25px] md:gap-y-[66px] mb-[25px] md:mb-0">
             {inputs.map((input) => (
               <div key={input.id} className="flex flex-col">
                 <input
@@ -110,8 +111,8 @@ const Contact = () => {
           </Button>
         </form>
         {/*right side*/}
-        <div className="relative basis-[509px]">
-          <div className=" text-white bg-[#5609BBB2] md:py-11 md:pl-[43px] relative z-10">
+        <div className="relative basis-[509px] mb-[53px] md:mb-0">
+          <div className=" text-white bg-[#5609BBB2] py-7 pl-5 pr-6 md:py-11 md:pl-[43px] relative z-10">
             <Title
               text="Contact Info"
               size="md"
@@ -119,20 +120,35 @@ const Contact = () => {
             />
             <a
               href="#"
-              className="  flex items-center  font-normal text-[22px]"
+              className="  flex items-center py-4  font-normal text-base md:text-[22px]"
             >
               <PhoneCall className=" mr-[17px]" /> +996222017686
             </a>
             <a
               href="#"
-              className="  flex items-center  font-normal text-[22px] md:pb-[47px] md:pt-[33px]"
+              className="  flex items-center mb-[30px]  font-normal text-base md:text-[22px] md:pb-[47px] md:pt-[33px]"
             >
               <Mail className=" mr-[17px]" /> +motionweb312@gmail.com
             </a>
-            <div className=" flex md:gap-8 md:mb-[37px]">
-              <Send color="white" fill="white" />
-              <Phone color="white" fill="white" />
-              <Instagram color="white" fill="white" />
+            <div className=" flex gap-8 mb-[47px] md:mb-[37px]">
+              <Image
+                src="/assets/icons/contact-telegram.svg"
+                alt=""
+                width={36}
+                height={36}
+              />
+              <Image
+                src="/assets/icons/contact-whatsApp.svg"
+                alt=""
+                width={36}
+                height={36}
+              />
+              <Image
+                src="/assets/icons/contact-instagram.svg"
+                alt=""
+                width={36}
+                height={36}
+              />
             </div>
             <div className=" max-w-[372px]">
               <iframe
@@ -143,16 +159,29 @@ const Contact = () => {
               ></iframe>
             </div>
           </div>
-          <div className=" absolute -top-[28px] -right-[47px] h-[653px] w-[448px] border-2 border-[#BBBBBB] dark:border-[#000] z-0">
+          <div className=" absolute -top-[28px] -right-2 md:-right-[47px] h-[110%] w-[90%]  border-2 border-[#BBBBBB] dark:border-[#000] z-0">
             <div
               onClick={() => setOpenPopUp((prev) => !prev)}
-              className="absolute -right-14 top-1/2 -translate-x-1/2 px-4 py-4 rounded-full bg-[#E5EA00] cursor-pointer"
+              className="hidden md:block absolute -right-14 top-1/2 -translate-x-1/2 px-4 py-4 rounded-full bg-[#E5EA00] cursor-pointer"
             >
               <Link />
             </div>
           </div>
         </div>
-        {openPopUp && <ContactPopUp setOpenPopUp={setOpenPopUp} />}
+        <ContactPopUp
+          setOpenPopUp={setOpenPopUp}
+          openPopUp={openPopUp}
+          className={openPopUp ? "active" : ""}
+        />
+        <div
+          onClick={() => setOpenPopUp((prev) => !prev)}
+          className=" flex md:hidden items-center border py-1 px-7 space-x-[10px] self-end rounded-lg cursor-pointer"
+        >
+          <div className="px-[11px] py-[11px] rounded-full bg-[#E5EA00]">
+            <Link />
+          </div>
+          <span className="text-base text-[#BBBBBB]">Copy the link</span>
+        </div>
       </Container>
     </section>
   );

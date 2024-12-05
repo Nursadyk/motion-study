@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import useWindowSize from "@/hooks/useWindowSize";
 import { SearchItems } from "./SearchItems";
 import ThemeSwitch from "./ThemeSwitch";
+import { AlignJustify, X } from "lucide-react";
 export const Header = () => {
   const [active, setActive] = React.useState(0);
   const [burger, setBurger] = React.useState(false);
@@ -32,14 +33,7 @@ export const Header = () => {
           </div>
           {width <= 768 && (
             <button onClick={() => setBurger((prev) => !prev)}>
-              <Image
-                src={`/assets/icons/${
-                  !burger ? "burger-btn" : "close-burger-btn"
-                }.svg`}
-                alt=""
-                width={34}
-                height={34}
-              />
+              {!burger ? <AlignJustify size={30} /> : <X size={30} />}
             </button>
           )}
         </div>

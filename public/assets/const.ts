@@ -89,7 +89,7 @@ export const inputs = [
   },
   {
     id: 3,
-    type: "number",
+    type: "text",
     placeholder: "Phone",
     name: "Phone",
     required: "Phone number is required",

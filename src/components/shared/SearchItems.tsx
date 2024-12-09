@@ -1,3 +1,4 @@
+"use client";
 import clsx from "clsx";
 import { Search } from "lucide-react";
 import React from "react";

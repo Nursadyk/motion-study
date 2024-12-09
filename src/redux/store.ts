@@ -1,11 +1,11 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
-import useTranslateSlice from "./futures/TranslateSlice";
-const combineValues = combineReducers({
-  translate: useTranslateSlice,
-});
+import useTranslateSlice from "./futures/useTranslateSlice";
+
 export const store = configureStore({
-  reducer: combineValues,
+  reducer: {
+    translate: useTranslateSlice,
+  },
 });
 export const useAppSelector: TypedUseSelectorHook<
   ReturnType<typeof store.getState>

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { navbar } from "../../../public/assets/const";
 import clsx from "clsx";
@@ -5,7 +6,7 @@ import Link from "next/link";
 import { Instagram, PhoneCall, Send, Mail } from "lucide-react";
 import useTranslate from "@/hooks/useTranslate";
 import { useAppDispatch } from "@/redux/store";
-import { switchLanguage } from "@/redux/futures/TranslateSlice";
+import { switchLanguage } from "@/redux/futures/useTranslateSlice";
 const icons = [
   { Component: Send, key: "send" },
   { Component: Instagram, key: "instagram" },

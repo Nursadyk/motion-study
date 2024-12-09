@@ -8,7 +8,7 @@ import { SearchItems } from "./SearchItems";
 import ThemeSwitch from "./ThemeSwitch";
 import { AlignJustify, X } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/redux/store";
-import { switchLanguage } from "@/redux/futures/TranslateSlice";
+import { switchLanguage } from "@/redux/futures/useTranslateSlice";
 import { usePathname } from "next/navigation";
 export const Header = () => {
   const [active, setActive] = React.useState(0);
@@ -16,7 +16,7 @@ export const Header = () => {
   const { width } = useWindowSize();
   const dispatch = useAppDispatch();
   const path = usePathname();
-  const language = useAppSelector((s) => s.translate.lg);
+  const language = useAppSelector((s) => s.translate?.lg || "EN");
   function switchLanguages(e: React.ChangeEvent<HTMLSelectElement>) {
     if (e.target.value === "EN") {
       dispatch(switchLanguage(e.target.value));

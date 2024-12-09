@@ -1,12 +1,13 @@
 "use client";
 import { Container, Title } from "@/components/shared";
 import ContactPopUp from "@/components/shared/ContactPopUp";
-import { Button } from "@/components/ui";
+import { Button, UserMessages } from "@/components/ui";
 import { Link, Mail, PhoneCall } from "lucide-react";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { inputs } from "../../../public/assets/const";
 import Image from "next/image";
+import useTranslate from "@/hooks/useTranslate";
 interface Form {
   FirstName: string;
   LastName: string;
@@ -16,13 +17,19 @@ interface Form {
 }
 const Contact = () => {
   const [openPopUp, setOpenPopUp] = React.useState(false);
+  const [isErrorInContact, SetIsErrorInContact] = React.useState({
+    isTrue: false,
+    isError: false,
+    serverMessage: "",
+  });
+  const translate = useTranslate();
   const {
     register,
     handleSubmit,
     formState: { isSubmitting, errors },
     reset,
   } = useForm<Form>({
-    mode: "onBlur",
+    mode: "onChange",
   });
   const TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
   const CHAT_ID = process.env.NEXT_PUBLIC_CHAT_ID;
@@ -43,11 +50,33 @@ const Contact = () => {
       );
       const responseData = await response.json();
       if (responseData.ok) {
-        alert("Form submitted successfully!");
+        SetIsErrorInContact((prev) => ({
+          ...prev,
+          isTrue: true,
+        }));
+      } else {
+        SetIsErrorInContact((prev) => ({
+          ...prev,
+          isError: true,
+        }));
       }
-    } catch (error) {
-      alert("Failed to submit the form. Please try again later.");
-      console.log(error);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        SetIsErrorInContact((prev) => ({
+          ...prev,
+          serverMessage: error.message,
+        }));
+      } else {
+        console.error(
+          "An error occurred while sending a message to Telegram",
+          error
+        );
+        SetIsErrorInContact((prev) => ({
+          ...prev,
+          serverMessage:
+            "An error occurred while sending a message to Telegram",
+        }));
+      }
     }
     reset();
   };
@@ -59,7 +88,24 @@ const Contact = () => {
     }
   }, [openPopUp]);
   return (
-    <section className=" md:pt-5 pb-[100px] md:pb-[243px]">
+    <section id="contact" className=" md:pt-5 pb-[100px] md:pb-[243px]">
+      {isErrorInContact.isTrue || isErrorInContact.isError ? (
+        <UserMessages
+          closeMessage={() =>
+            SetIsErrorInContact({
+              isTrue: false,
+              isError: false,
+              serverMessage: "",
+            })
+          }
+          message={
+            isErrorInContact.isTrue
+              ? "Form submitted successfully!"
+              : `something went wrong try again later ${isErrorInContact.serverMessage}`
+          }
+          isError={isErrorInContact}
+        />
+      ) : null}
       <Container className=" flex flex-col md:flex-row">
         {/*left side*/}
         <form
@@ -67,7 +113,7 @@ const Contact = () => {
           className=" flex flex-col flex-grow shadow-lg pt-7 pl-5 pr-11 mb-[98px] md:mb-0 md:px-[43px] md:pt-[44px]"
         >
           <Title
-            text="Send a message"
+            text={translate("Send a message", "Отправить сообщение")}
             size="md"
             className=" pb-[30px] font-gilroyMedium leading-[29px]"
           />
@@ -76,7 +122,10 @@ const Contact = () => {
               <div key={input.id} className="flex flex-col">
                 <input
                   type={input.type}
-                  placeholder={input.placeholder}
+                  placeholder={translate(
+                    input.placeholder.en,
+                    input.placeholder.ru
+                  )}
                   className="border-b md:border-b-2 border-[#939393] md:pb-[10px] md:h-[32px]"
                   {...register(input.name as keyof Form, {
                     required: input.required,
@@ -93,13 +142,13 @@ const Contact = () => {
           </div>
           <input
             type="text"
-            placeholder="Group or Company"
+            placeholder={translate("Group or Company", "Группа или компания")}
             className=" border-b md:border-b-2 border-[#939393] md:pb-[10px] md:mt-[67px] md:mb-[27px] md:h-[32px]"
             {...register("Group", { required: true })}
           />
           <br />
           <textarea
-            placeholder="how can we help?"
+            placeholder={translate("how can we help?", "Чем мы можем помочь?")}
             className=" md:mb-[28px]"
           ></textarea>
           <hr className=" border-[#939393] md:border-t-2" />
@@ -107,14 +156,14 @@ const Contact = () => {
             type="submit"
             className=" self-center mt-7 mb-[18px] md:mt-[33px] md:mb-[31px] h-[59px]"
           >
-            {isSubmitting ? "Sending..." : "Submit"}
+            {isSubmitting ? "Sending..." : translate("Submit", "Отправить")}
           </Button>
         </form>
         {/*right side*/}
         <div className="relative basis-[509px] mb-[53px] md:mb-0">
           <div className=" text-white bg-[#5609BBB2] py-7 pl-5 pr-6 md:py-11 md:pl-[43px] relative z-10">
             <Title
-              text="Contact Info"
+              text={translate("Contact Info", "Контактная информация")}
               size="md"
               className="text-white md:mb-6"
             />

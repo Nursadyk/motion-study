@@ -37,3 +37,6 @@
 .translate-button {
   @apply text-xl  text-[#7E7B7B] hover:underline underline-offset-4;
 }
+.study-text {
+  @apply font-normal text-xl leading-7 text-[#010D39];
+}

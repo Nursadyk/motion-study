@@ -4,6 +4,9 @@
 body {
   font-weight: 500;
 }
+html {
+  scroll-behavior: smooth;
+}
 html::-webkit-scrollbar {
   width: 10px;
   background-color: #ffdede;

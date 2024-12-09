@@ -1,10 +1,12 @@
 "use client";
 import { Container, SearchItems, Title } from "@/components/shared";
 import { Button } from "@/components/ui";
+import useTranslate from "@/hooks/useTranslate";
 import React from "react";
 
 function Hero() {
   const [animationClass, setAnimationClass] = React.useState("animate-grow");
+  const translate = useTranslate();
   React.useEffect(() => {
     const timeout = setTimeout(() => {
       setAnimationClass("animate-bounce-slow");
@@ -18,18 +20,23 @@ function Hero() {
         <div className="animate-slide-right">
           <SearchItems type="mobile" />
           <Title
-            text="Explore the world"
+            text={translate("Explore the world", "Исследуйте мир")}
             className=" text-[#5609BBCC] font-medium md:font-semibold pt-[38px] md:pt-[52px] md:text-2xl"
             size="lg"
           />
           <Title
-            text="Study abroad with our help"
+            text={translate(
+              "Study abroad with our help",
+              "Учитесь за границей с нашей помощью"
+            )}
             size="sm"
             className=" font-gilroyBold tracking-wider max-w-[491px] py-[15px] md:pt-9 md:pb-[17px]"
           />
           <p className=" text-base text-[#606060] dark:text-white font-normal md:text-lg  max-w-[393px]">
-            Study at the {`world's`} top universities and expand your horizons.
-            Get the highest quality education and achieve success abroad.
+            {translate(
+              "Study at the {`world's`} top universities and expand your horizons.Get the highest quality education and achieve success abroad.",
+              "Учитесь в лучших университетах мира и расширьте свой кругозор. Получите образование высочайшего качества и добивайтесь успеха за рубежом."
+            )}
           </p>
         </div>
         <div className="relative">
@@ -66,12 +73,12 @@ function Hero() {
             <img src="/assets/icons/user-contact-hero.svg" alt="" />
             <form className=" flex flex-col gap-[10px]">
               <label htmlFor="name" className=" md:text-xs font-normal">
-                NAME
+                {translate("NAME", "ИМЯ")}
               </label>
               <input
                 type="text"
                 id="name"
-                placeholder="| Enter your name"
+                placeholder={translate("| Enter your name", "Введите свое имя")}
                 className=" placeholder:font-normal text-[17px]"
               />
             </form>
@@ -80,17 +87,20 @@ function Hero() {
             <img src="/assets/icons/phone-contact-hero.svg" alt="" />
             <form className=" flex flex-col gap-[10px]">
               <label htmlFor="name" className=" md:text-xs font-normal">
-                PHONE
+                {translate("PHONE", "ТЕЛЕФОН")}
               </label>
               <input
                 type="number"
                 id="name"
-                placeholder="Enter your phone"
+                placeholder={translate(
+                  "Enter your phone",
+                  "Введите ваш телефон"
+                )}
                 className=" placeholder:font-normal text-[17px]"
               />
             </form>
           </div>
-          <Button type="submit">Сontact</Button>
+          <Button type="submit">{translate("Сontact", "Связаться")}</Button>
         </div>
       </Container>
     </section>

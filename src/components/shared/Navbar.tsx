@@ -3,6 +3,9 @@ import { navbar } from "../../../public/assets/const";
 import clsx from "clsx";
 import Link from "next/link";
 import { Instagram, PhoneCall, Send, Mail } from "lucide-react";
+import useTranslate from "@/hooks/useTranslate";
+import { useAppDispatch } from "@/redux/store";
+import { switchLanguage } from "@/redux/futures/TranslateSlice";
 const icons = [
   { Component: Send, key: "send" },
   { Component: Instagram, key: "instagram" },
@@ -13,7 +16,7 @@ interface Props {
   active?: number;
   setActive: (active: number) => void;
   type: string;
-  closeBurger: () => void;
+  closeBurger?: () => void;
   className?: string;
 }
 const Navbar: React.FC<Props> = ({
@@ -23,6 +26,8 @@ const Navbar: React.FC<Props> = ({
   closeBurger,
   className,
 }) => {
+  const translate = useTranslate();
+  const dispatch = useAppDispatch();
   return (
     <div
       className={clsx("overlay", className, [
@@ -43,21 +48,37 @@ const Navbar: React.FC<Props> = ({
               key={i}
               onClick={() => {
                 setActive(i);
-                closeBurger();
+                closeBurger!();
               }}
               className={clsx("relative navbar-content", {
                 active: active === i && type !== "footer",
               })}
             >
               <Link href={item.href} className="text-xl md:text-base">
-                {item.title}
+                {translate(item.name.en, item.name.ru)}
               </Link>
             </li>
           );
         })}
         <div className=" flex space-x-[18px] md:hidden">
-          <button className="translate-button">EN</button>
-          <button className="translate-button">RU</button>
+          <button
+            className="translate-button"
+            onClick={() => {
+              dispatch(switchLanguage("EN"));
+              closeBurger!();
+            }}
+          >
+            EN
+          </button>
+          <button
+            className="translate-button"
+            onClick={() => {
+              dispatch(switchLanguage("RU"));
+              closeBurger!();
+            }}
+          >
+            RU
+          </button>
           <button className="translate-button">KG</button>
         </div>
         <div className=" flex space-x-9 md:hidden">

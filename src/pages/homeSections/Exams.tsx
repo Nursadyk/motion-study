@@ -5,18 +5,21 @@ import { exams } from "../../../public/assets/const";
 import useWindowSize from "@/hooks/useWindowSize";
 import Link from "next/link";
 import Image from "next/image";
+import useTranslate from "@/hooks/useTranslate";
 function Exams() {
   const { width } = useWindowSize();
+  const translate = useTranslate();
   return (
     <section className="pb-[124px] md:pb-[204px]">
       <Container>
         <h2 className="text-[28px] text-titleText dark:text-white md:text-[48px] font-gilroyMedium md:text-center">
-          Exams
+          {translate("Exams", "Экзамены")}
         </h2>
         <p className="mt-6 mb-10 md:text-center max-w-[675px] md:ml-auto md:mr-auto text-varText dark:text-slate-400">
-          Exams are tests that assess a persons knowledge, skills, aptitude, or
-          other qualifications in a specific subject or area of study. They are
-          used to evaluate academic performance.
+          {translate(
+            "Exams are tests that assess a persons knowledge, skills, aptitude, or other qualifications in a specific subject or area of study. They are used to evaluate academic performance.",
+            "Экзамены - это тесты, которые оценивают уровень знаний, навыков, умения или другие качества человека в определенной области обучения. Они используются для оценки успеваемости."
+          )}
         </p>
         <div className=" grid grid-cols-1 lg:grid-cols-2 justify-items-center xl:justify-items-stretch">
           {/* left side*/}
@@ -32,21 +35,37 @@ function Exams() {
             </div>
             <div className="pl-4">
               <Title
-                text="Cambrige English Exams"
+                text={translate(
+                  "Cambrige English Exams",
+                  "«Кембриджские экзамены по английскому языку»"
+                )}
                 size="2xl"
                 className=" text-darkBlue text-sm font-gilroyBold"
               />
               <Title
-                text="Your path to learning English, step by step."
+                text={translate(
+                  "Your path to learning English, step by step.",
+                  "Ваш путь к изучению английского языка, шаг за шагом."
+                )}
                 size="2xl"
                 className="text-[#001254] pt-[10px] pb-[5px] md:py-[13px]"
               />
               <p className=" text-xs font-normal max-w-[375px]">
-                Cambridge English Qualifications are in-depth exams that make
-                learning English enjoyable, effective and rewarding.
-                {width < 768
-                  ? ".."
-                  : " Our qualifications are based on research into effective teaching and learning."}
+                {translate(
+                  `Cambridge English Qualifications are in-depth exams that make
+               learning English enjoyable, effective and rewarding. ${
+                 width < 768
+                   ? ".."
+                   : " Our qualifications are based on research into effective teaching and learning."
+               }`,
+                  `Квалификации Cambridge English — это углубленные экзамены,
+                  которые делают изучение английского языка приятным, эффективным
+                  и полезным. ${
+                    width < 768
+                      ? ".."
+                      : "Наши квалификации основаны на исследованиях вобласти эффективного преподавания и обучения."
+                  }`
+                )}
               </p>
               <Link
                 href="/"
@@ -71,13 +90,16 @@ function Exams() {
 
                 <div className=" px-4 pb-[19px] pt-[13px] md:pb-0 md:pt-0">
                   <h3 className=" font-gilroyRegular text-sm bg-[#D9EBFF] w-fit px-5 py-[3px] rounded-md text-darkBlue">
-                    {exam.title.toLocaleUpperCase()}
+                    {translate(
+                      exam.title.en.toLocaleLowerCase(),
+                      exam.title.ru.toLocaleLowerCase()
+                    )}
                   </h3>
                   <h4 className=" text-base  md:text-[18px]  text-[#001254] dark:text-white pt-[10px] pb-[5px] md:py-[13px]">
-                    {exam.subtitle}
+                    {translate(exam.subtitle.en, exam.subtitle.ru)}
                   </h4>
                   <p className=" text-xs text-varText dark:text-slate-400">
-                    {exam.description}
+                    {translate(exam.description.en, exam.description.ru)}
                   </p>
                 </div>
               </div>

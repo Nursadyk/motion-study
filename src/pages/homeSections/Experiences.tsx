@@ -1,22 +1,29 @@
+"use client";
 import { Container, Title } from "@/components/shared";
 import React from "react";
 import { experienceItems } from "../../../public/assets/const";
 import Image from "next/image";
+import useTranslate from "@/hooks/useTranslate";
 
 function Experiences() {
+  const translate = useTranslate();
   return (
     <section className=" pb-[124px] md:pb-[160px]">
       <Container className="flex flex-wrap xl:flex-nowrap justify-between items-center gap-[45px]  ">
         <div className=" flex-grow">
           <Title
-            text="This is Why We Are Best From Others"
+            text={translate(
+              "This is Why We Are Best From Others",
+              "Вот почему мы лучше других"
+            )}
             size="5xl"
             className=" font-gilroyMedium max-w-[465px] text-titleText"
           />
           <p className="max-w-[555px] text-base md:text-lg font-normal text-varText dark:text-slate-400  pb-[50px] pt-[30px] ">
-            We provide full support at all stages of preparation, including
-            assistance in filing documents and preparing for an interview.
-            Contact us and start your journey to higher education abroad!
+            {translate(
+              "We provide full support at all stages of preparation, including assistance in filing documents and preparing for an interview. Contact us and start your journey to higher education abroad!",
+              "Мы оказываем полную поддержку на всех этапах подготовки, включая помощь в подаче документов и подготовке к собеседованию. Свяжитесь с нами и начните свой путь к высшему образованию за рубежом!"
+            )}
           </p>
           <div>
             <img src="/assets/images/experience.png" alt="" />
@@ -31,17 +38,20 @@ function Experiences() {
               <div className=" flex items-center gap-x-5 md:block">
                 <Image
                   src={experienceItem.image}
-                  alt={experienceItem.title}
+                  alt={experienceItem.title.en}
                   className="object-cover md:pt-[11px] md:pb-6"
                   width={46}
                   height={46}
                 />
                 <h3 className="text-[28px] md:text-[22px] text-varText dark:text-white">
-                  {experienceItem.title}
+                  {translate(experienceItem.title.en, experienceItem.title.ru)}
                 </h3>
               </div>
               <p className="max-w-full md:max-w-[228px] text-lg font-normal text-varText dark:text-slate-400 md:text-[#001254] md:text-sm md:pb-2">
-                {experienceItem.description}
+                {translate(
+                  experienceItem.description.en,
+                  experienceItem.description.ru
+                )}
               </p>
             </div>
           ))}

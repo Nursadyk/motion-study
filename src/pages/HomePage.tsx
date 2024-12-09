@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Hero from "./homeSections/Hero";
 import Experiences from "./homeSections/Experiences";

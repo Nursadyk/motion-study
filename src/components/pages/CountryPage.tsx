@@ -10,8 +10,6 @@ const CountryPage = () => {
   const { data: universeData } = useFetch<IUniverse[]>(
     "https://65ed686c0ddee626c9b197ce.mockapi.io/univer"
   );
-  console.log(universeData);
-
   return (
     <section className=" md:pt-[100px] md:pb-[313px]">
       <Container>

@@ -4,7 +4,6 @@ import useTranslate from "@/hooks/useTranslate";
 import React from "react";
 import Image from "next/image";
 import useFetch from "@/hooks/useFetch";
-
 function Team() {
   const translate = useTranslate();
   const { data: studyData, loading } = useFetch<ourTeam[]>(

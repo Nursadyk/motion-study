@@ -1,7 +1,7 @@
 "use client";
 import { Container, Title } from "@/components/shared";
 import React from "react";
-import { exams } from "../../../public/assets/const";
+import { exams } from "../../../../public/assets/const";
 import useWindowSize from "@/hooks/useWindowSize";
 import Link from "next/link";
 import Image from "next/image";

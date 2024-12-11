@@ -7,16 +7,16 @@ import useWindowSize from "@/hooks/useWindowSize";
 import { SearchItems } from "./SearchItems";
 import ThemeSwitch from "./ThemeSwitch";
 import { AlignJustify, X } from "lucide-react";
-import { useAppDispatch, useAppSelector } from "@/redux/store";
-import { switchLanguage } from "@/redux/futures/useTranslateSlice";
+import { useAppDispatch, useAppSelector } from "../../lib/store";
+import { switchLanguage } from "@/lib/futures/useTranslateSlice";
 import { usePathname } from "next/navigation";
 export const Header = () => {
   const [active, setActive] = React.useState(0);
   const [burger, setBurger] = React.useState(false);
   const { width } = useWindowSize();
-  const dispatch = useAppDispatch();
   const path = usePathname();
   const language = useAppSelector((s) => s.translate?.lg || "EN");
+  const dispatch = useAppDispatch();
   function switchLanguages(e: React.ChangeEvent<HTMLSelectElement>) {
     if (e.target.value === "EN") {
       dispatch(switchLanguage(e.target.value));

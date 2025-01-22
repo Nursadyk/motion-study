@@ -1,7 +1,7 @@
 "use client";
 import { Container, Title } from "@/components/shared";
 import React from "react";
-import { experienceItems } from "../../../../public/assets/const";
+import { experienceItems } from "../../../constants/const";
 import Image from "next/image";
 import useTranslate from "@/hooks/useTranslate";
 

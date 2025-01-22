@@ -41,8 +41,7 @@ textarea {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 200;
-  cursor: pointer;
+  z-index: 50;
 }
 .overlay-contact.active {
   visibility: visible;

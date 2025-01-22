@@ -19,8 +19,9 @@ const ContactPopUp: React.FC<Props> = ({
       className={`overlay-contact ${className}`}
     >
       <div
+        onClick={(e) => e.stopPropagation()}
         className={clsx(
-          "relative mx-auto md:absolute md:right-[92px] -bottom-full flex flex-col w-fit max-h-[321px] bg-white z-50 px-[19px]",
+          "relative mx-auto md:absolute md:right-[92px] -bottom-full flex flex-col w-fit max-h-[321px] bg-white px-[19px]",
           {
             "transition-easy top-1/2 -translate-y-1/2": openPopUp,
           }
@@ -51,6 +52,7 @@ const ContactPopUp: React.FC<Props> = ({
             width={48}
             height={48}
           />
+
           <Image
             src="/assets/icons/telegram-icon-bg.svg"
             alt="whatsapp"
@@ -58,7 +60,11 @@ const ContactPopUp: React.FC<Props> = ({
             height={48}
           />
         </div>
-        <Button type="button" className="self-center mb-8">
+        <Button
+          onClick={() => setOpenPopUp(false)}
+          type="button"
+          className="self-center mb-8"
+        >
           Done
         </Button>
       </div>

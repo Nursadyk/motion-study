@@ -5,7 +5,7 @@ import { Button, UserMessages } from "@/components/ui";
 import { Link, Mail, PhoneCall } from "lucide-react";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { inputs } from "../../../../public/assets/const";
+import { inputs } from "../../../constants/const";
 import Image from "next/image";
 import useTranslate from "@/hooks/useTranslate";
 interface Form {

@@ -57,6 +57,9 @@ export const Header = () => {
       case "/study":
         setActive(2);
         break;
+      case "/study/country":
+        setActive(2);
+        break;
       default:
         break;
     }
@@ -80,12 +83,13 @@ export const Header = () => {
             <select
               onChange={switchLanguages}
               name="En"
-              id=""
+              value={language}
               className="hidden md:block dark:bg-slate-900"
             >
-              <option value="EN">{language === "RU" ? "RU" : "EN"}</option>
-              <option value="RU">{language === "EN" ? "EN" : "RU"}</option>
+              <option value="EN">EN</option>
+              <option value="RU">RU</option>
             </select>
+
             <ThemeSwitch />
           </div>
           {width <= 768 && (

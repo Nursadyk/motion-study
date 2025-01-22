@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { navbar } from "../../../public/assets/const";
+import { navbar } from "../../constants/const";
 import clsx from "clsx";
 import Link from "next/link";
 import { Instagram, PhoneCall, Send, Mail } from "lucide-react";
@@ -32,8 +32,8 @@ const Navbar: React.FC<Props> = ({
   return (
     <div
       className={clsx("overlay", className, [
-        "absolute top-full bg-blue-100 w-full min-h-screen dark:bg-slate-900 left-0 md:relative md:min-h-0",
-        type === "header" && "md:bg-white",
+        "absolute top-full  w-full min-h-screen dark:bg-slate-900 left-0 md:relative md:min-h-0",
+        type === "header" && "bg-blue-100 md:bg-transparent",
         type === "footer" &&
           "hidden md:flex md:justify-center dark:md:bg-[#121212] md:bg-[#121212]",
       ])}
